@@ -12,13 +12,14 @@ class HangpersonGame
   # Get a word from remote "random word" service
 
   def initialize(word)
+    puts 'STARTING NEW GAME WITH #{word}...'
     start_new_game(word)
   end
 
   public
   def guess(letter)
-    raise ArgumentError.new if letter !~ /[a-zA-Z]/ 
-    return false unless check_win_or_lose == :play
+    raise ArgumentError, "Argument is not a letter" unless letter =~ /[a-zA-Z]/ 
+    raise RuntimeError, "Game has already ended" unless check_win_or_lose == :play
     
     guess = letter.downcase
 

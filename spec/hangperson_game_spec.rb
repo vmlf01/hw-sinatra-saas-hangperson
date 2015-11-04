@@ -122,7 +122,7 @@ describe HangpersonGame do
     end
     it 'should not accept new guesses after game ends', :skip => false do
       guess_several_letters(@game, 'ogd')
-      expect(@game.guess('a')).to eq(false)
+      expect{ @game.guess('a') }.to raise_error(RuntimeError)
     end
   end
 end
