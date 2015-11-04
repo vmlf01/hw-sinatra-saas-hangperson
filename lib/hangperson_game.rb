@@ -12,7 +12,6 @@ class HangpersonGame
   # Get a word from remote "random word" service
 
   def initialize(word)
-    puts 'STARTING NEW GAME WITH #{word}...'
     start_new_game(word)
   end
 
@@ -31,7 +30,6 @@ class HangpersonGame
     else
       register_wrong_guess(guess)
     end
-    @guess_count = @guess_count + 1
     return true
   end
   
@@ -57,7 +55,7 @@ class HangpersonGame
     @word = word
     @guesses = ''
     @wrong_guesses = ''
-    @guess_count = 0
+    @wrong_guess_count = 0
     
     update_word_with_guesses
   end
@@ -71,7 +69,8 @@ class HangpersonGame
   end
 
   def register_correct_guess(guess)
-    @guesses << guess unless @guesses.include?(guess)
+    return if @guesses.include?(guess)
+    @guesses << guess
   end
   
   def update_word_with_guesses
@@ -86,7 +85,9 @@ class HangpersonGame
   end
 
   def register_wrong_guess(guess)
-    @wrong_guesses << guess unless @wrong_guesses.include?(guess)
+    return if @wrong_guesses.include?(guess)
+    @wrong_guesses << guess
+    @wrong_guess_count = @wrong_guess_count + 1
   end
   
   def guessed_complete_word?
@@ -94,7 +95,7 @@ class HangpersonGame
   end
   
   def reached_max_guesses?
-    @guess_count >= MAX_GUESSES
+    @wrong_guess_count >= MAX_GUESSES
   end
     
 end

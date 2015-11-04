@@ -113,7 +113,7 @@ describe HangpersonGame do
       expect(@game.check_win_or_lose).to eq(:win)
     end
     it 'should be lose after 7 incorrect guesses', :skip => false do
-      guess_several_letters(@game, 'tuvwxyz')
+      guess_several_letters(@game, 'tduvwoxyz')
       expect(@game.check_win_or_lose).to eq(:lose)
     end
     it 'should continue play if neither win nor lose', :skip => false do
