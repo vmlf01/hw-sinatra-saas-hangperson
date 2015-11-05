@@ -1,6 +1,8 @@
 Hangperson: a scaffolded (!) ESaaS getting-started assignment
 =============================================================
 
+https://travis-ci.org/vmlf01/hw-sinatra-saas-hangperson.svg
+
 (v1.1, September 2015.  Written by Armando Fox and Nick Herson)
 (some edits by mverdicchio 21 September 2015)
 
