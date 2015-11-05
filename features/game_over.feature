@@ -16,3 +16,10 @@ Scenario: game over because I run out of guesses
   When I make the following guesses: i,s,u,c,k,h,a,r
   And I guess "d"
   Then I should see "Sorry, you lose!"
+
+Scenario: try to show game after game is over
+
+  Given I start a new game with word "foobar"
+  When I make the following guesses: f,o,b,a,r
+  And I am on the show page
+  Then I should be on the winning page
